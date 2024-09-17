@@ -1,0 +1,268 @@
+### Day_1
+
+♾️Day 1: Introduction to Azure
+Morning Session:
+Topics:
+Introduction to Cloud Computing and Azure
+Understanding Tenants, Subscriptions and Resource Groups
+Introduction to Networking in Azure (VNet and Subnets)
+
+Introduction to Cloud Computing and Azure
+Cloud Computing Overview:
+Cloud computing is the delivery of various services such as storage, processing power, and networking over the internet. It allows businesses and individuals to access resources without the need for physical infrastructure, offering scalability, flexibility, and cost-effectiveness. The main service models include:
+
+IaaS (Infrastructure as a Service): Provides virtualized computing resources over the internet (e.g., Azure Virtual Machines).
+PaaS (Platform as a Service): Offers hardware and software tools over the internet, primarily for application development (e.g., Azure App Service).
+SaaS (Software as a Service): Delivers software applications over the internet on a subscription basis (e.g., Microsoft Office 365).
+Microsoft Azure:
+Azure is Microsoft's cloud computing platform that provides a broad range of services including those for computing, analytics, storage, and networking. It enables businesses to build, test, and deploy applications and services through Microsoft-managed data centers.
+
+Understanding Tenants, Subscriptions, and Resource Groups in Azure
+Azure Tenant:
+An Azure tenant is a dedicated instance of the Azure Active Directory (Azure AD) service, providing identity and access management. It represents an organization and includes users, groups, and other resources in a secure environment.
+
+Subscriptions:
+Azure subscriptions are containers that provide access to Azure resources. Each subscription has its own resources and billing account. Organizations can have multiple subscriptions for different projects or departments, allowing for better management and cost tracking.
+
+Resource Groups:
+Resource groups are logical containers used to group related Azure resources for easier management. They enable users to deploy, manage, and delete resources as a single unit. Resource groups help apply role-based access control (RBAC) and organize resources based on projects, teams, or environments.
+
+Introduction to Networking in Azure: VNet and Subnets
+Azure Virtual Network (VNet):
+A VNet is a fundamental building block for your private network in Azure. It enables secure communication between Azure resources and devices on-premises or in other VNets. Key features include:
+
+Isolation: Each VNet is isolated from other VNets unless you establish connectivity.
+IP Addressing: You can define your own private IP address space (IPv4 or IPv6).
+Security: VNets can be connected to on-premises networks securely via VPNs and Azure ExpressRoute.
+Subnets:
+Subnets provide a way to segment a VNet into smaller, manageable parts. They allow you to control the flow of traffic and apply policies. Subnets can also host services such as Azure Virtual Machines, Azure Web Apps, and more. Additionally, Azure provides built-in policies and security groups to enhance protection at the subnet level.
+
+
+
+
+👉Lab Task:
+Create a Resource Group, VNet and Subnet using the Azure portal
+
+👆Creating a Resource Group, Virtual Network (VNet), and Subnet in the Azure Portal is a straightforward process. Here’s a step-by-step guide to help you through the lab task:
+
+Step-by-Step Guide
+1. Log in to the Azure Portal
+Navigate to the Azure Portal: https://portal.azure.com
+Sign in with your Azure account credentials.
+2. Create a Resource Group
+On the left-hand menu, click on "Resource groups."
+Click on "Create" at the top.
+Fill in the required information:
+Subscription: Select the subscription you want to use.
+Resource Group: Enter a name for your resource group (e.g., MyResourceGroup).
+Region: Choose the appropriate region for your resources.
+Click "Review + create."
+After validation, click "Create" to create the resource group.
+3. Create a Virtual Network (VNet)
+In the Azure Portal, click on "Create a resource" in the upper left corner.
+Search for "Virtual Network" and select it from the dropdown.
+Click on "Create."
+Fill in the necessary details:
+Subscription: Choose your subscription.
+Resource Group: Select the resource group you just created (MyResourceGroup).
+Region: Select the same region as your resource group.
+Name: Enter a name for your VNet (e.g., MyVNet).
+Address space: Provide an IP address range in CIDR notation (e.g., 10.0.0.0/16).
+Click "Next: IP Addresses."
+Configure the subnets:
+Click on "+ Add subnet."
+Subnet name: Enter a name for your subnet (e.g., MySubnet).
+Subnet address range: Specify the range (e.g., 10.0.0.0/24).
+Click "Add" and then proceed through the remaining options.
+Click on "Review + create." After validation, click "Create."
+4. Verify the Resources
+Once the deployment completes, navigate to your Resource Group (e.g., MyResourceGroup) from the left sidebar.
+You should see your newly created VNet and Subnet listed within this resource group.
+
+
+Afternoon Session:
+Topics:
+Azure Virtual Machines (VMs) and Storage Accounts
+Introduction to Key Vaults and App Services 
+
+
+
+
+Azure Virtual Machines (VMs)
+Overview:
+Azure Virtual Machines provide on-demand computing resources that users can configure and run as needed. They enable organizations to run applications, host services, and perform computations in the cloud without the need for physical hardware.
+
+Key Features:
+
+Scalability: VMs can be scaled up or down based on application demands.
+Flexibility: You can choose from a variety of operating systems (Windows, Linux) and pre-configured images or create custom images.
+Integration: VMs can integrate seamlessly with other Azure services, such as Azure Load Balancer, Azure Networking, and Azure Active Directory.
+Use Cases:
+
+Running enterprise applications.
+Hosting websites.
+Development and testing environments.
+Creating an Azure VM:
+
+Go to the Azure Portal.
+Click on "Create a resource" and select "Virtual Machine."
+Fill in details like the resource group, VM name, region, image, size, and authentication type.
+Configure networking and other settings before review.
+Click "Create" to deploy the VM.
+Azure Storage Accounts
+Overview:
+Azure Storage Accounts provide a durable and highly available storage solution for unstructured data, including blobs, files, queues, and tables. They serve as a container for various storage services.
+
+Key Features:
+
+Types of Storage Services:
+Blob Storage for unstructured data (e.g., images, audio, video).
+File Storage for shared file systems with SMB protocol.
+Queue Storage for messaging between applications.
+Table Storage for NoSQL data services.
+Redundancy Options: Offers multiple options for data redundancy (LRS, GRS, RA-GRS).
+Scalability: Easily scale storage as demand increases.
+Creating a Storage Account:
+
+In the Azure Portal, click on "Create a resource."
+Search for and select "Storage Account."
+Fill in the required fields, including subscription, resource group, storage account name, and performance options.
+Choose redundancy and access tier settings.
+Click "Review + create," and once validated, click "Create."
+Introduction to Azure Key Vaults
+Overview:
+Azure Key Vault is a cloud service that safeguards cryptographic keys and secrets used by cloud applications and services. It helps control access and manage sensitive information securely.
+
+Key Features:
+
+Secrets Management: Store and manage sensitive information like passwords, API keys, and certificates.
+Key Management: Create and control encryption keys used for data encryption.
+Access Control: Implement granular policies using Azure Role-Based Access Control (RBAC) to determine access rights to keys and secrets.
+Use Cases:
+
+Safeguarding sensitive data for applications.
+Managing encryption keys for Azure resources.
+Centralizing credentials and access management.
+Creating a Key Vault:
+
+In the Azure Portal, click "Create a resource."
+Search for "Key Vault" and select it.
+Fill in the required details, such as subscription, resource group, and Key Vault name.
+Configure access policies and other settings.
+Click "Review + create," and then "Create."
+Introduction to Azure App Services
+Overview:
+Azure App Services is a fully managed platform for building, deploying, and scaling web applications and APIs. It supports multiple programming languages and frameworks, making it versatile for developers.
+
+Key Features:
+
+Multi-Language Support: Run applications developed in .NET, Java, PHP, Python, and Node.js.
+Integration: Easily integrate with Azure services, GitHub, Docker Hub, and other third-party services for continuous deployment.
+Scaling: Automatically scale applications based on user demand, with options for manual scaling as well.
+Use Cases:
+
+Hosting web applications and APIs.
+Creating mobile app backends.
+Integrating with serverless architectures.
+Creating an App Service:
+
+In the Azure Portal, click on "Create a resource."
+Search for and select "Web App."
+Fill in the application details, including the subscription, resource group, app name, publish method, runtime stack, and region.
+Configure additional settings, such as monitoring and scaling options.
+Click "Review + create," and then "Create."
+Summary
+Understanding Azure Virtual Machines and Storage Accounts provides the groundwork for deploying flexible resources in the cloud. Azure Key Vault enhances security by managing sensitive keys and secrets, while Azure App Services enables efficient web and API hosting. Together, these services create a powerful ecosystem to build, deploy, and scale applications seamlessly in the Azure cloud environment.
+
+
+
+
+lab:
+
+Deploy a Virtual Machine and Storage Account.
+Secure secrets in Azure Key Vault and deploy a simple web app using App
+Service. 
+
+👉Deploying a Virtual Machine, a Storage Account, securing secrets in Azure Key Vault, and deploying a simple web app using Azure App Service involves several steps. Here’s a comprehensive guide to help you accomplish these tasks:
+
+Part 1: Deploy a Virtual Machine
+Step 1: Create a Virtual Machine
+Log in to the Azure Portal: https://portal.azure.com.
+Create a Resource:
+Click on "Create a resource".
+Search for "Virtual Machine" and select it.
+Configure the VM:
+Basics:
+Subscription: Choose your subscription.
+Resource Group: Create a new one or use an existing one.
+VM Name: Give your VM a name (e.g., MyVM).
+Region: Select the Azure region.
+Availability Options: Choose as per your need (e.g., Availability Zone).
+Image: Select an OS (e.g., Windows Server, Ubuntu).
+Size: Choose a size based on your requirements.
+Administrator Account: Set a username and password or SSH key.
+Networking: Choose or create a Virtual Network and configure network settings.
+Management, Advanced, and Tags: Adjust settings as needed.
+Review and Create:
+Click "Review + create" and then "Create" after validation.
+Part 2: Create a Storage Account
+Step 1: Create a Storage Account
+Create a Resource:
+Click on "Create a resource" and search for "Storage Account."
+Configure the Storage Account:
+Basics:
+Subscription: Choose your subscription.
+Resource Group: Select the same resource group as your VM.
+Storage Account Name: Enter a unique name.
+Region: Choose the same region as your VM.
+Performance and Replication: Select based on your needs (e.g., Standard/LRS).
+Review and Create:
+Click "Review + create," and then "Create" after validation.
+Part 3: Secure Secrets in Azure Key Vault
+Step 1: Create a Key Vault
+Create a Resource:
+Search for "Key Vault" in the Azure Portal.
+Click on "Create."
+Configure Key Vault:
+Basics:
+Subscription: Choose your subscription.
+Resource Group: Select the same resource group as before.
+Key Vault Name: Provide a unique name.
+Region: Choose the appropriate region.
+Access Policies: Configure access policies to specify who can access the Key Vault.
+Review and Create:
+Click "Review + create," and then "Create."
+Step 2: Add Secrets to Key Vault
+Navigate to the Key Vault you created.
+Go to the "Secrets" section.
+Click on "+ Generate/Import."
+Enter a name (e.g., MySecret) and value (e.g., mySecretValue).
+Click "Create."
+Part 4: Deploy a Simple Web App using App Service
+Step 1: Create an App Service
+Create a Resource:
+Click on "Create a resource," then search for "Web App."
+Configure the App Service:
+Basic:
+Subscription: Choose your subscription.
+Resource Group: Select your existing resource group.
+Name: Enter a unique name for your web app.
+Publish: Choose Code.
+Runtime Stack: Select a framework (e.g., .NET, Node.js, PHP).
+Region: Choose the same region as your VM.
+App Service Plan: Create or choose an existing one.
+Review and Create:
+Click "Review + create," and then "Create."
+Step 2: Deploy a Simple Web Application
+After the App Service is created, navigate to the App Service in the portal.
+Go to "Deployment Center" to set up a deployment method (e.g., from GitHub, Azure Repos, or Local Git).
+Follow the prompts based on the selected deployment method to upload or link your application code.
+Summary
+You’ve successfully deployed a Virtual Machine and a Storage Account, secured secrets in Azure Key Vault, and deployed a simple web application using Azure App Service. This process showcases the versatility of Azure's cloud offerings, enabling you to build, manage, and secure applications efficiently.
+
+
+
+
+
+
+
