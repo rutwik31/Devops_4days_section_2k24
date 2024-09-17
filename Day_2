@@ -1,0 +1,186 @@
+###Day_2
+
+
+♾️ Day 2: Introduction to Terraform
+Morning Session:
+Topics:
+Introduction to Infrastructure as Code (IaC) and Terraform
+Setting up Terraform: Installation, Configuration and Providers
+Terraform Basics: Resources, Variables and State Management 
+
+Certainly! Here’s the content themed specifically around using Terraform with Azure.
+
+Day 2: Introduction to Terraform in Azure
+Morning Session Overview
+In this session, we'll explore Terraform as an Infrastructure as Code (IaC) tool focused on managing Azure resources. We'll cover installation, configuration with Azure, key concepts in Terraform, and how to create and manage resources in Azure.
+
+1. Introduction to Infrastructure as Code (IaC)
+What is IaC?
+
+Infrastructure as Code (IaC) is a method of managing and provisioning infrastructure through code rather than manual processes.
+This approach automates and improves consistency across environments.
+Benefits of IaC:
+
+Consistency: Deploying the same infrastructure across multiple environments.
+Automation: Automate the infrastructure lifecycle.
+Speed: Quickly deploy resources as needed.
+Version Control: Easy tracking of changes.
+2. Introduction to Terraform
+What is Terraform?
+
+Terraform is an open-source IaC tool by HashiCorp, which supports multiple cloud providers, including Microsoft Azure.
+Key Features:
+
+Providers: Allows you to interact with Azure resources.
+Modules: Reusable Terraform configurations.
+Provisioning: Manage Azure resources across their lifecycle (create, update, delete).
+State Management: Maintains the current state of the infrastructure.
+3. Setting Up Terraform for Azure
+Installation:
+
+Download Terraform:
+
+Go to the Terraform website and download the appropriate binary for your operating system.
+Install Terraform:
+
+On Windows: Extract the zip file and add it to your PATH.
+On macOS: Use Homebrew:
+bash
+
+Copy
+brew install terraform
+On Linux: Extract the binary and move it to /usr/local/bin/.
+Verify Installation:
+
+Open a terminal and run:
+bash
+
+Copy
+terraform -v
+Configuration:
+
+Set Up Azure CLI: Ensure you have the Azure CLI installed and logged in:
+
+bash
+
+Copy
+az login
+Create a new directory for your Terraform project:
+
+bash
+
+Copy
+mkdir my-azure-terraform
+cd my-azure-terraform
+Providers: In your main.tf file, configure the Azure provider:
+
+hcl
+
+Copy
+provider "azurerm" {
+  features {}
+}
+4. Terraform Basics with Azure
+Resources:
+
+Terraform resources represent the infrastructure components you want to create.
+Example of creating an Azure Resource Group and an Azure Virtual Machine:
+hcl
+
+Copy
+resource "azurerm_resource_group" "my_rg" {
+  name     = "my-resource-group"
+  location = "East US"
+}
+
+resource "azurerm_virtual_network" "my_vnet" {
+  name                = "myVNet"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+}
+
+resource "azurerm_subnet" "my_subnet" {
+  name                 = "mySubnet"
+  resource_group_name  = azurerm_resource_group.my_rg.name
+  virtual_network_name = azurerm_virtual_network.my_vnet.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+
+resource "azurerm_network_interface" "my_nic" {
+  name                = "myNIC"
+  location            = azurerm_resource_group.my_rg.location
+  resource_group_name = azurerm_resource_group.my_rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                    = azurerm_subnet.my_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_virtual_machine" "my_vm" {
+  name                  = "myVM"
+  location              = azurerm_resource_group.my_rg.location
+  resource_group_name   = azurerm_resource_group.my_rg.name
+  network_interface_ids = [azurerm_network_interface.my_nic.id]
+
+  vm_size = "Standard_DS1_v2"
+
+  storage_os_disk {
+    name              = "myOSDisk"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+  }
+
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "adminuser"
+    admin_password = "Password123!"
+  }
+
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+
+  image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
+    version   = "latest"
+  }
+}
+Variables:
+
+Define variables to make your configurations more flexible in variables.tf:
+hcl
+
+Copy
+variable "location" {
+  description = "The location for the Azure resources."
+  default     = "East US"
+}
+
+variable "admin_username" {
+  description = "The admin username for the VM."
+  default     = "adminuser"
+}
+
+variable "admin_password" {
+  description = "The admin password for the VM."
+  type        = string
+}
+State Management:
+
+Terraform stores the current state of your infrastructure in a file named terraform.tfstate.
+Best Practices:
+Use remote state storage (e.g., Azure Blob Storage) for better collaboration.
+Secure state files, especially if they contain sensitive data.
+Conclusion
+By the conclusion of this session, you will have a strong foundational understanding of Terraform as it pertains to Azure, including installation, basic configuration, and resource management features.
+
+Next Steps
+Hands-on Exercises: Create Azure resources using Terraform.
+Explore modules for organizing Terraform configurations more efficiently.
+Discuss state management and remote backends for collaborative environments.
+This framework offers a practical introduction to Terraform aimed at managing Azure infrastructure efficiently.
