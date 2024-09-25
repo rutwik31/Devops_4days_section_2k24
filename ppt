@@ -1,1 +1,138 @@
 
+Devops workshop ppt 
+Day 1:
+What is cloud computing ?
+Cloud computing refers to the delivery of computing services over the internet (“the cloud”), allowing users to access and use shared resources, such as servers, storage, databases, networking, software, and analytics, without direct management from users. Instead of relying on local servers or personal devices, users can leverage remote servers hosted in data centers, typically managed by third-party providers.
+Benefits:
+  - Cost Efficiency
+  - Scalability
+  - Accessibility
+  - Flexibility
+
+why cloud plat form like aws,azure and gpc etc came into the existance ?
+when we look back into the olden days of deploying of the web application or apps. where we need to purchage the server and we need to invest,maintenance of that server.
+Buying is a server is very much cost and the maintenance is also costly. if our application is not reached to our expectations . what ever we bought is wast of money.
+So in order to over come all this issues the cloud providers came into the action.they will provide us servers for rent.So we can use there servers and services .can pay in the form of rent.
+aws,azure and gcp and other most use the term called pay-as-you-go.
+
+There are three main types of cloud computing?
+public cloud : A public cloud is a computing model that allows individuals and organizations to access computing services over the internet through third-party providers. These services can include storage, applications, and develop-and-deploy environments.
+private clouds: The private cloud is defined as computing services offered either over the Internet or a private internal network and only to select users instead of the general public.
+
+ hybrid clouds: A hybrid cloud is a computing environment that combines an on-premises data center (private cloud) with a public cloud, allowing data and applications to be shared between them.
+
+
+
+types of cloud computing services:
+1.Infrastructure as a Service (IaaS)
+
+IaaS provides virtualized computing resources over the internet, including virtual machines, storage, and networks. Users can rent IT infrastructure on a pay-as-you-go basis, eliminating the need for physical hardware.
+2. Platform as a Service (PaaS)
+ PaaS provides a platform allowing developers to build, deploy, and manage applications without worrying about the underlying infrastructure. It typically includes development tools, databases, middleware, and more.
+3. Software as a Service (SaaS)
+SaaS delivers software applications over the internet, allowing users to access the software via a web browser without needing to install or maintain it on their local devices. It often operates on a subscription model.
+
+Introduction to Azure ?
+  Azure is a cloud computing platform by Microsoft that enables businesses to build, deploy, and manage a wide range of applications and services through Microsoft-managed data centers across the globe.
+
+Azure Subscription:
+   A subscription is a logical container used to provision and manage Azure resources. It's tied to a billing account and helps manage access, costs, and resource organization.
+Tenant in azure:
+A tenant in Azure is a Microsoft Entra ID entity that represents an organization, identity, or person. It's a digital representation of your organization and is primarily associated with a domain, like Microsoft.com.
+Azure subscription:
+An Azure subscription is a logical container used to provision related business or technical resources in Azure. It holds the details of all your resources like virtual machines (VMs), databases, and more. When you create an Azure resource like a VM, you identify the subscription it belongs to.
+
+
+
+
+
+ Azure Resources:
+     These are the individual services provided by Azure, such as Virtual Machines (VMs), SQL Databases, Storage Accounts, etc. Each resource is deployed and managed independently within a resource group.
+
+Resource Groups
+   A resource group is a container that holds related resources for an Azure solution. It helps manage and organize resources like virtual machines, storage accounts, and databases based on their lifecycle and permissions.
+
+Steps of creation of reasource group:
+To create a resource group in Azure, follow these steps:
+1.	Navigate to the Azure portal and log in to your account.
+2.	In the left-hand menu, click on "Resource groups."
+3.	Click on the "Create resource group" button.
+4.	Fill in the details for the resource group, such as the subscription, resource group name, and region.
+5.	Click on "Review + create" to review the details, and then click "Create" to create the resource group.
+
+Virtual Network (VNet):
+In Azure, a Virtual Network (VNet) is a logical isolation of the Azure cloud dedicated to your subscription. It allows you to securely connect Azure resources, such as virtual machines, within a virtual private network and provides various options for networking, security, and communication.
+
+Steps to create the vnet:
+•  Log in to Azure Portal: Go to the Azure Portal and log in with your credentials.
+•  Navigate to Virtual Networks: In the left-hand menu, search for and select "Virtual Networks."
+•  Create a New VNet:
+•	Click on "Create" at the top of the Virtual Networks page.
+•	Choose a Subscription and Resource Group (create a new one or select an existing one).
+•  Configure Basics:
+•	Name: Enter a name for your VNet.
+•	Region: Select the region where you want your VNet to be created.
+•	IP Address Space: Define the address space using CIDR notation (e.g., 10.0.0.0/16).
+•  Add Subnets:
+•	You can define subnets within your VNet. Each subnet gets its own portion of the IP address space (e.g., 10.0.1.0/24).
+•	You can configure multiple subnets for different Azure resources.
+•  Configure Security and Connectivity Options (Optional):
+•	You can add Network Security Groups (NSGs) to manage inbound/outbound traffic.
+•	Choose whether to connect your VNet to an on-premises network using VPN Gateway or ExpressRoute.
+Review and Create: After configuring all the necessary settings, review your setup, and click Create.
+
+ virtual meachine:
+A virtual machine (VM) is a software-based computer that acts like a physical computer, allowing you to run programs and operating systems on it.
+
+1. Sign in to Azure Portal
+•	Go to Azure Portal and log in with your Azure account.
+2. Create the Virtual Machine
+•	Search for Virtual machines in the top search bar and select it.
+•	Click on + Create, then select Azure virtual machine.
+3. Configure Basic Settings
+•	Choose your Subscription.
+•	Enter a Virtual Machine Name.
+•	Select a Region.
+•	Choose an Image (operating system).
+•	Select a Size for your VM.
+•	Click Next: Disks.
+4. Configure Disks
+•	Choose the OS Disk Type (Standard HDD, Standard SSD, or Premium SSD).
+•	Click Next: Networking.
+5. Configure Networking
+•	Select or create a Virtual Network and choose a Subnet.
+•	Create a Public IP if needed.
+•	Select a Network Security Group (ensure you allow RDP, TCP 3389).
+•	Click Next: Management.
+6. Management Options
+•	Choose monitoring and management settings as desired.
+•	Click Next: Advanced.
+7. Advanced Options (Optional)
+•	Configure optional extensions or leave settings as default.
+•	Click Next: Tags.
+8. Add Tags (Optional)
+•	Add tags for organization if needed.
+•	Click Next: Review + create.
+9. Review and Create
+•	Review all configurations, then click Create to deploy your VM.
+10. Connect to Your VM
+•	Once the deployment is complete, go to the VM's overview.
+•	Click Connect > RDP.
+•	Download the RDP file and open it using the credentials you set during the setup.
+
+Azure Storage Account:
+An Azure Storage Account is a container that holds various Azure storage services such as blobs, files, queues, tables, and disks. 
+Key Types of Storage Accounts
+1.	Blob Storage: For storing unstructured data like images, videos, and documents.
+2.	File Storage: Managed file shares accessible via the SMB protocol.
+3.	Queue Storage: For building messaging queues to facilitate asynchronous communication between components.
+4.	Table Storage: A NoSQL key-value store optimized for fast data access.
+5.	Disk Storage: Persistent storage for Azure Virtual Machines.
+
+
+
+Introduction to Azure Key Vault
+Azure Key Vault is a cloud service designed to securely store and manage sensitive information such as API keys, passwords, certificates, and cryptographic keys. It provides a centralized location for managing secrets that can be accessed by applications and services securely and conveniently.
+
+Azure App Service?
+Azure App Service is a fully managed platform-as-a-service (PaaS) offered by Microsoft Azure for building, deploying, and scaling web applications, RESTful APIs, and mobile backends. It abstracts the complexity of infrastructure management, allowing developers to focus on application development without worrying about the underlying servers, operating systems, or runtime environments.
